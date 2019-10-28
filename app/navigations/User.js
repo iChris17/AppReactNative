@@ -8,7 +8,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import HomeScreen from '../screen/Home';
 import Top5Screen from '../screen/Top5';
 import SearchScreen from '../screen/Search';
-import AccountScreen from '../screen/MyAccount';
+import AccountScreen from '../screen/MyAccount/MyAccount';
+import RegisterScreen from '../screen/MyAccount/Register';
 
 const HomeStack = createStackNavigator({
   Home: {
@@ -38,12 +39,18 @@ const SearchStack = createStackNavigator({
 });
 
 const AccountStack = createStackNavigator({
-  Top: {
+  Account: {
     screen: AccountScreen,
     navigationOptions: ({navigation}) => ({
       title: 'My Account',
     }),
   },
+  Register:{
+    screen:RegisterScreen,
+    navigationOptions: ({navigation}) => ({
+      title: 'Register',
+    }),
+  }
 });
 
 const RootStack = createBottomTabNavigator(
@@ -106,6 +113,8 @@ const RootStack = createBottomTabNavigator(
       }
   },
   {
+    initialRouteName:"Account",
+    order:["Home","TopFive","Search","Account"],
     tabBarOptions: {
       inactiveTintColor: '#646464',
       activeTintColor: '#00a680',
