@@ -5,14 +5,14 @@ import {Button} from "react-native-elements";
 export default class MyAccount extends Component{
 
 
-    goToScreen=nameScreen =>{
+    goToScreen = nameScreen => {
 this.props.navigation.navigate(nameScreen);
     };
     render(){
         return (
             <View style={styles.viewBody}> 
                 <Text>Account Screen</Text>
-                <Button title="Registro" onPress={()=>this.goToScreen("Register")} />
+                <Button title="Registro" onPress={()=> this.goToScreen("Register")} />
             </View>
         )
     }

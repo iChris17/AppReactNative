@@ -18,6 +18,11 @@ import {
 
 import UserNavigation from './app/navigations/User';
 
+import firebaseConfig from './app/utils/firebase';
+import * as firebase from 'firebase';
+
+firebase.initializeApp(firebaseConfig);
+
 const App: () => React$Node = () => {
   return (
    <View style={styles.container}> 

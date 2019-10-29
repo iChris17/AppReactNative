@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import t from "tcomb-form-native";
 import formsValidation from "../utils/Validation";
+import inputTemplate from '../forms/templates/input';
 
 export const RegisterStruct = t.struct({
     name:t.String,
@@ -12,28 +13,40 @@ export const RegisterStruct = t.struct({
 export const RegisterOptions={
     fields:{
         name:{
-            label:"Nombre (*)",
-            placeholder:"Escribe tu nombre",
-            error:"Nombre Invalido"
+            template: inputTemplate,
+            config:{
+                placeholder:"Escribe tu nombre",
+                iconType:"material-community",
+                iconName:"account-outline"
+            }
         },
-        email:{
-            label:"Email (*)",
-            placeholder:"Escribe tu email",
-            error:"Email invalido"
+        email:{           
+            template: inputTemplate,
+            config:{
+                placeholder:"Escribe tu correo",
+                iconType:"material-community",
+                iconName:"at"
+            }
         },
         password:{
-            label:"Password (*)",
-            placeholder:"Password",
-            error:"Password invalido",
-            password:true,
-            secureTextEntry:true
+            template: inputTemplate,
+            config:{
+                placeholder:"Password",
+                password:true,
+                secureTextEntry:true,
+                iconType:"material-community",
+                iconName:"lock-outline"
+            }
         },
         passwordConfirmator:{
-            label:"Password (*)",
-            placeholder:"Password",
-            error:"Password invalido",
-            password:true,
-            secureTextEntry:true
+            template: inputTemplate,
+            config:{
+                placeholder:"Repite tu Password",
+                password:true,
+                secureTextEntry:true,
+                iconType:"material-community",
+                iconName:"lock-reset"
+            }
         }
     }
 }
