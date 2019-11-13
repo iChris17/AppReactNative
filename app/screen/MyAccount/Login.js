@@ -44,12 +44,12 @@ export default class Login extends Component {
         .auth()
         .signInWithEmailAndPassword(validate.email, validate.password)
         .then(() => {
-          this.refs.toastLogin.show("Login Correcto",1000,()=>{
+          this.refs.toastLogin.show('Login Correcto', 1000, () => {
             this.props.navigation.goBack();
-          })
+          });
         })
         .catch(err => {
-          this.refs.toastLogin.show(err.code,1000);
+          this.refs.toastLogin.show(err.code, 1000);
         });
     }
   };
@@ -80,6 +80,16 @@ export default class Login extends Component {
             buttonStyle={styles.buttonstyle}
             onPress={() => this.onPress()}
           />
+          <Text style={styles.textRegister}>
+            No tienes cuenta aun?{' '}
+            <Text
+              style={styles.btnRegister}
+              onPress={() => {
+                this.props.navigation.navigate('Register');
+              }}>
+              Registrate
+            </Text>
+          </Text>
           <Text style={styles.error}>{loginError}</Text>
         </View>
         <Toast
@@ -101,15 +111,16 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
     marginTop: 20,
+    marginBottom: 20,
   },
   containerlogo: {
     alignItems: 'center',
   },
   viewBody: {
     flex: 1,
-    marginLeft: 40,
-    marginRight: 40,
-    marginTop: 40,
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 30,
   },
   Logo: {
     width: 200,
@@ -123,5 +134,14 @@ const styles = StyleSheet.create({
   },
   viewForm: {
     marginTop: 50,
+  },
+  textRegister: {
+    marginTop: 15,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  btnRegister: {
+    color: '#00a680',
+    fontWeight: 'bold',
   },
 });

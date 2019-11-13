@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
-import {Button} from 'react-native-elements';
+import {StyleSheet, View, Text,ActivityIndicator} from 'react-native';
+import {Button,Image} from 'react-native-elements';
 import t from 'tcomb-form-native';
 import Toast,{DURATION} from 'react-native-easy-toast';
 
@@ -69,6 +69,14 @@ export default class Register extends Component {
     const formErrorMessage = this.state.formErrorMessage;
     return (
       <View style={styles.viewBody}>
+        <View style={styles.containerlogo}>
+          <Image
+            source={require('../../../assets/images/5-tenedores-letras-icono-logo.png')}
+            style={styles.Logo}
+            PlaceholderContent={<ActivityIndicator />}
+            resizeMode="contain"
+          />
+        </View>
         <Form
           ref="registerForm"
           type={this.state.registerStruct}
@@ -114,5 +122,13 @@ const styles = StyleSheet.create({
     color: '#f00',
     textAlign: 'center',
     marginTop: 30,
+  },
+  Logo: {
+    width: 200,
+    height: 150,
+    marginBottom:20
+  },
+  containerlogo: {
+    alignItems: 'center',
   },
 });
